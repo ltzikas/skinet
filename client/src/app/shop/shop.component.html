@@ -15,7 +15,7 @@
                     *ngFor="let brand of brands"
                     [class.active] = "brand.id === this.shopParams.brandId"
                     [value] = "brand.id"
-                    (click) = "onBrandSelected(brand.id)"
+                    (click) = "onBrandSelected(brand.id)"                    
                 >
                     {{brand.name}}
                 </li>
@@ -26,7 +26,7 @@
                     *ngFor="let type of types"
                     [class.active] = "type.id === this.shopParams.typeId"
                     [value] = "type.id"
-                    (click) = "onTypeSelected(type.id)"
+                    (click) = "onTypeSelected(type.id)"                
                 >
                     {{type.name}}
                 </li>
