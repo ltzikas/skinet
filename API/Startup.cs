@@ -4,6 +4,7 @@ using API.Helpers;
 using API.Middleware;
 using API.Extensions;
 using StackExchange.Redis;
+using Infraestructure.Identity;
 
 namespace API
 {
@@ -18,7 +19,6 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddControllers();
             services.AddDbContext<StoreContext>(x => 
@@ -29,6 +29,7 @@ namespace API
                 return ConnectionMultiplexer.Connect(options);
             });
             services.AddApplicationServices();
+            services.AddIdentityServices(_config);
             services.AddSwaggerDocumentation();
             services.AddCors(opt =>{
                 opt.AddPolicy("CorsPolicy", policy =>
